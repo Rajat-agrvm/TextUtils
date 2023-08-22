@@ -38,6 +38,13 @@ export default function Navbar(props) {
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form> */}
+
+          <div>
+            <button className="btn btn-primary mx-1 btn-circle btn-sm" onClick={props.setDefaultTheme}></button>
+          </div>
+          <div>
+            <button className="btn btn-success mx-3 btn-circle btn-sm"  onClick={props.setGreenTheme}></button>
+          </div>
           <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>
             <input
               className="form-check-input"

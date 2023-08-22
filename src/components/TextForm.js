@@ -29,10 +29,10 @@ export default function TextForm(props) {
           style={{backgroundColor: props.mode === 'dark'?'grey':'white' , color:props.mode === 'dark'?'white':'black'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+      <button className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1`} onClick={handleUpClick}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+      <button className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1`} onClick={handleLoClick}>
         Convert to lowercase
       </button>
     </div>
