@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
-  const [text, setText] = useState("Enter text here");
+  const [text, setText] = useState("");
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -29,19 +29,19 @@ export default function TextForm(props) {
           style={{backgroundColor: props.mode === 'dark'?'grey':'white' , color:props.mode === 'dark'?'white':'black'}}
         ></textarea>
       </div>
-      <button className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1`} onClick={handleUpClick}>
+      <button disabled = {text.length === 0} className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1 my-1`} onClick={handleUpClick}>
         Convert to Uppercase
       </button>
-      <button className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1`} onClick={handleLoClick}>
+      <button disabled = {text.length === 0} className={`btn ${props.theme==='green'?"btn-success":"btn-primary"} mx-1 my-1`} onClick={handleLoClick}>
         Convert to lowercase
       </button>
     </div>
     <div className="container my-3" style={{color: props.mode === 'dark'?'white':'black'}}>
       <h1>Your text summary</h1>
-     <p> Your text has {text.trim().split(" ").length} words and {text.length} characters</p>
-     <p>{0.008 * text.trim().split(" ").length} minutes read</p>
+     <p> Your text has {text.trim().split(" ").filter((element)=> element.length > 0).length} words and {text.length} characters</p>
+     <p>{0.008 * text.trim().split(" ").filter((element)=> element.length > 0).length} minutes read</p>
      <h2>Preview</h2>
-     <p>{text}</p>
+     <p>{text.length === 0 ?"Nothing to preview":text}</p>
     </div>
     </>
   );
